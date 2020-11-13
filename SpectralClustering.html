@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spectral Clustering &#8212; Iowa Gambling Task - Model Results Analysis</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Spectral Analysis - Discrete Interval Groups" href="SpectralAnalysisDiscreteIntervalGroups.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Iowa Gambling Task - Model Results Analysis</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Iowa Gambling Task - Model Parameter Analysis
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data%20Exploration%20%26%20Visualisation.html">
+   Exploring &amp; Visualising Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering%20Techniques.html">
+   Clustering Techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering%20Techniques.html#interpretation-of-results">
+   Interpretation of Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering%20Techniques.html#conclusion-future-work">
+   Conclusion &amp; Future work
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SpectralAnalysisDistance.html">
+   Spectral Analysis - Distance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SpectralAnalysisDiscreteIntervalGroups.html">
+   Spectral Analysis - Discrete Interval Groups
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Spectral Clustering
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/SpectralClustering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/SpectralClustering.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/SpectralClustering.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="spectral-clustering">
+<h1>Spectral Clustering<a class="headerlink" href="#spectral-clustering" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_vpp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/parameter_igt_orl.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/parameter_igt_pvl_delta.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_vpp&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/parameters_igt_vpp.csv&#39;</span><span class="p">)</span>
+<span class="n">dataset_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">,</span> <span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">,</span> <span class="s1">&#39;igt_vpp&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#split into young and old</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">][</span><span class="s1">&#39;young&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;subjID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;young&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">][</span><span class="s1">&#39;old&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;subjID&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;old&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">][</span><span class="s1">&#39;young&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;young&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">][</span><span class="s1">&#39;old&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;old&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_vpp&#39;</span><span class="p">][</span><span class="s1">&#39;young&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_vpp&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_vpp&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;young&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_vpp&#39;</span><span class="p">][</span><span class="s1">&#39;old&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_vpp&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_vpp&#39;</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;old&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># these are columns which we dont want to connect</span>
+<span class="n">bad_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;SubID&#39;</span><span class="p">,</span> <span class="s1">&#39;subjID&#39;</span><span class="p">]</span>
+<span class="n">age_groups</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="s1">&#39;young&#39;</span><span class="p">,</span> <span class="s1">&#39;old&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]:</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">age_group</span> <span class="ow">in</span> <span class="n">age_groups</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;by_column&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;interval_groups&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;interval_groups&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">]</span>
+        <span class="n">data_points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;column_names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_points</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">bad_cols</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data_points</span><span class="p">:</span>
+                <span class="n">data_points</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+        <span class="c1"># build interval groups</span>
+        <span class="k">for</span> <span class="n">data_point</span> <span class="ow">in</span> <span class="n">data_points</span><span class="p">:</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;by_column&#39;</span><span class="p">][</span><span class="n">data_point</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">data_point</span><span class="p">]</span>
+            <span class="n">interval_groups</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">data_column</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">data_point</span><span class="p">]</span>
+            <span class="c1"># we split the range of the data in this column at 1000 equal points and split the subjects into groups</span>
+            <span class="n">intervals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data_column</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data_column</span><span class="p">),</span> <span class="mi">1001</span><span class="p">))</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervals</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">mini</span> <span class="o">=</span> <span class="n">intervals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">maxi</span> <span class="o">=</span> <span class="n">intervals</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">interval_groups</span><span class="p">[</span><span class="n">maxi</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_column</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">mini</span> <span class="o">&lt;</span> <span class="n">val</span> <span class="o">&lt;=</span> <span class="n">maxi</span><span class="p">:</span>
+                        <span class="n">interval_groups</span><span class="p">[</span><span class="n">maxi</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">interval_groups</span><span class="p">[</span><span class="n">maxi</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_column</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">data_column</span><span class="p">)))</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="c1"># reassign group ids</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">new_groups</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">int_group</span> <span class="ow">in</span> <span class="n">interval_groups</span><span class="p">:</span>
+                <span class="n">new_groups</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">interval_groups</span><span class="p">[</span><span class="n">int_group</span><span class="p">]</span>
+<span class="c1">#                 del interval_groups[int_group]</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;interval_groups&#39;</span><span class="p">][</span><span class="n">data_point</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_groups</span>
+            <span class="c1"># next we want to build feature matrices based on these groups of subjects which fall within</span>
+            <span class="c1"># the same interval for this column in the dataset</span>
+            <span class="c1"># if the subjects are in the same group they get a relationship. simple</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">153</span><span class="p">,</span><span class="mi">153</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">int_group</span> <span class="ow">in</span> <span class="n">new_groups</span><span class="p">:</span>
+                <span class="n">connected_subjects</span> <span class="o">=</span> <span class="n">new_groups</span><span class="p">[</span><span class="n">int_group</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">cs1</span> <span class="ow">in</span> <span class="n">connected_subjects</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">cs2</span> <span class="ow">in</span> <span class="n">connected_subjects</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">cs1</span> <span class="o">!=</span> <span class="n">cs2</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">matrix</span><span class="p">[</span><span class="n">cs1</span><span class="p">,</span> <span class="n">cs2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                                <span class="n">matrix</span><span class="p">[</span><span class="n">cs1</span><span class="p">,</span> <span class="n">cs2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="c1">#test the matrix to ensure it has been built correctly</span>
+            <span class="k">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">assert</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">matrix</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;interval_groups&#39;</span><span class="p">][</span><span class="n">data_point</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]:</span>
+    <span class="n">master_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">153</span><span class="p">,</span><span class="mi">153</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">age_group</span> <span class="ow">in</span> <span class="n">age_groups</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">data_point</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;column_names&#39;</span><span class="p">]:</span>
+            <span class="n">master_matrix</span> <span class="o">=</span> <span class="n">master_matrix</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;interval_groups&#39;</span><span class="p">][</span><span class="n">data_point</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;interval_groups&#39;</span><span class="p">][</span><span class="s1">&#39;master&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">master_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]:</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="s1">&#39;group&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">]:</span>
+        <span class="n">group_labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="s1">&#39;subjID&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">]:</span>
+        <span class="n">group_labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;subjID&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">group_labels</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;young&#39;</span><span class="p">:</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;old&#39;</span><span class="p">:</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">age_group</span> <span class="ow">in</span> <span class="n">age_groups</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected Graph for </span><span class="si">{</span><span class="n">age_group</span><span class="si">}</span><span class="s2"> in </span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;--------------------&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">convert_matrix</span><span class="o">.</span><span class="n">from_numpy_array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">age_group</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;interval_groups&#39;</span><span class="p">][</span><span class="s1">&#39;master&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">age_group</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected Graph for all in igt_orl
+--------------------
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_7_1.png" src="_images/SpectralClustering_7_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected Graph for young in igt_orl
+--------------------
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_7_3.png" src="_images/SpectralClustering_7_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected Graph for old in igt_orl
+--------------------
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_7_5.png" src="_images/SpectralClustering_7_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected Graph for all in igt_pvl_delta
+--------------------
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_7_7.png" src="_images/SpectralClustering_7_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected Graph for young in igt_pvl_delta
+--------------------
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_7_9.png" src="_images/SpectralClustering_7_9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected Graph for old in igt_pvl_delta
+--------------------
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_7_11.png" src="_images/SpectralClustering_7_11.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected Graph for all in igt_vpp
+--------------------
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_7_13.png" src="_images/SpectralClustering_7_13.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected Graph for young in igt_vpp
+--------------------
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_7_15.png" src="_images/SpectralClustering_7_15.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connected Graph for old in igt_vpp
+--------------------
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_7_17.png" src="_images/SpectralClustering_7_17.png" />
+</div>
+</div>
+<p>Based on the graphs above, you can edit the cell below to apply KMeans clustering to any of the adjacency matrices that have been created in the notebook</p>
+<p>Read the comments in the code to see how we select eigenvalues and k.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_dataset</span> <span class="o">=</span> <span class="s1">&#39;igt_orl&#39;</span>
+<span class="n">target_age_group</span> <span class="o">=</span> <span class="s1">&#39;young&#39;</span>
+<span class="n">target_matrix</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="n">target_dataset</span><span class="p">][</span><span class="n">target_age_group</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;interval_groups&#39;</span><span class="p">][</span><span class="s1">&#39;master&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="n">target_matrix</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">D</span> <span class="o">-</span> <span class="n">A</span> <span class="c1"># graph laplacian</span>
+
+<span class="n">NL</span><span class="o">=</span> <span class="n">I</span> <span class="o">*</span> <span class="n">d</span> <span class="o">-</span> <span class="n">A</span>
+<span class="n">osd</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">osd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">I</span> <span class="o">*</span> <span class="n">osd</span>
+<span class="n">NL</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">NL</span><span class="p">,</span> <span class="n">T</span><span class="p">))</span>
+<span class="c1"># L = NL # uncomment this line to use a normalised lapalacian matrix instead</span>
+<span class="n">vals</span><span class="p">,</span> <span class="n">vecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+
+<span class="c1"># to find the number of connected components, we have to count the number of eigenvalues = 0</span>
+<span class="c1"># unfortunately, as numpy is so accurate, we are unable to just count the number of these values that are equal to zero</span>
+<span class="c1"># to overcome this, we look at the ratio between eigenvalues. if the ratio between two consecutive eigenvalues</span>
+<span class="c1"># is biggest, this indicates to us that we have found where the eigenvalues become &quot;non-zero&quot;.</span>
+
+<span class="c1">#Eigenvalue Analysis. </span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">))]</span>
+<span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1">#build list of ratios</span>
+<span class="n">ratio</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ratio</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1">#division by zero occurs as there is 1 eigenvalue which is truly 0</span>
+<span class="c1">#turn infinite values to zero - this needs to be done in order to find the biggest jump</span>
+<span class="n">ratio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ratio</span><span class="p">)</span>
+<span class="n">ratiolist</span> <span class="o">=</span> <span class="n">ratio</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ratiolist</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">math</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span>
+        <span class="n">ratiolist</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">#find where there is a massive jump in eigenvalue ratios - this is where they begin to be non zero</span>
+<span class="n">zeros</span> <span class="o">=</span> <span class="n">ratiolist</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">ratiolist</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1">#round the list of ratios to make 1&#39;s easier to find</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">ratiolist</span><span class="p">:</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">zeros</span><span class="p">)</span>
+<span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">vecs</span><span class="p">[:,:</span><span class="n">zeros</span><span class="p">])</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>        
+        
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">convert_matrix</span><span class="o">.</span><span class="n">from_numpy_array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-9-75a5da891081&gt;:31: RuntimeWarning: divide by zero encountered in double_scalars
+  r = vals[i] / vals[i-1]
+</pre></div>
+</div>
+<img alt="_images/SpectralClustering_10_1.png" src="_images/SpectralClustering_10_1.png" />
+</div>
+</div>
+<p>Here we can see a core group of individuals who behave similarly.<br />
+There are a small number of outliers which are around the outside of the network</p>
+<p>Further analysis could involve breaking down this central component into smaller clusters.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="SpectralAnalysisDiscreteIntervalGroups.html" title="previous page">Spectral Analysis - Discrete Interval Groups</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jack Boylan & Ivan Fitzpatrick<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
