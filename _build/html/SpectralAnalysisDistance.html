@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spectral Analysis - Distance &#8212; Iowa Gambling Task - Model Results Analysis</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.2d2078699c18a0efb88233928e1cf6ed.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.be0a4a0c39cd630af62a2fcf693f3f06.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Spectral Analysis - Discrete Interval Groups" href="SpectralAnalysisDiscreteIntervalGroups.html" />
+    <link rel="prev" title="Clustering Techniques" href="Clustering%20Techniques.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Iowa Gambling Task - Model Results Analysis</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Iowa Gambling Task - Model Parameter Analysis
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Data%20Exploration%20%26%20Visualisation.html">
+   Exploring &amp; Visualising Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering%20Techniques.html">
+   Clustering Techniques
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering%20Techniques.html#interpretation-of-results">
+   Interpretation of Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering%20Techniques.html#conclusion-future-work">
+   Conclusion &amp; Future work
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Spectral Analysis - Distance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SpectralAnalysisDiscreteIntervalGroups.html">
+   Spectral Analysis - Discrete Interval Groups
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="SpectralClustering.html">
+   Spectral Clustering
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/SpectralAnalysisDistance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/SpectralAnalysisDistance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/SpectralAnalysisDistance.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="spectral-analysis-distance">
+<h1>Spectral Analysis - Distance<a class="headerlink" href="#spectral-analysis-distance" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">ss</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">hamming</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">euclidean</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial.distance</span> <span class="kn">import</span> <span class="n">cityblock</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">minkowski_distance</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">hdbscan</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Data will be stored in dictionaries</p>
+<p>This allows for easy accessibility to any data point we use in the notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/parameter_igt_orl.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/parameter_igt_pvl_delta.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="s1">&#39;igt_vpp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/parameters_igt_vpp.csv&#39;</span><span class="p">)</span>
+<span class="n">dataset_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;igt_orl&#39;</span><span class="p">,</span> <span class="s1">&#39;igt_pvl_delta&#39;</span><span class="p">,</span> <span class="s1">&#39;igt_vpp&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculating similarity between individuals</p>
+<p>For each subject, we want to calculate their similarity to every other subject based on the data points given to us.</p>
+<p>The first approach to do this was to calculate an absolute distance for each subject and each datapoint.<br />
+We then build matrices with these distances.</p>
+<p>We use these adjacency matrices to create plots of the points and from here we can see if it is possible to cluster the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrices</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="c1"># these are columns which we dont want to connect</span>
+<span class="n">bad_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;SubID&#39;</span><span class="p">,</span> <span class="s1">&#39;subjID&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;column_names&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;by_column&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;absolute_distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]:</span>
+    <span class="c1"># we create our young and old labels for each dataset</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="s1">&#39;group&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]:</span>
+        <span class="n">group_labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;group&#39;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="s1">&#39;subjID&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]:</span>
+        <span class="n">group_labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;subjID&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">group_labels</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;young&#39;</span><span class="p">:</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s1">&#39;old&#39;</span><span class="p">:</span>
+            <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;labels created&quot;</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span>
+    <span class="n">data_points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="c1"># get rid of bad columns - those which we don&#39;t want to use for clustering</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">bad_cols</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data_points</span><span class="p">:</span>
+            <span class="n">data_points</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;groups removed from data&quot;</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;column_names&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_points</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;by_column&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;absolute_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="c1">#build distance matrices</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;building + standardising Adjacency matrices&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">data_point</span> <span class="ow">in</span> <span class="n">data_points</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;by_column&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">data_point</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">data_point</span><span class="p">]</span>
+        <span class="n">data_column</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">data_point</span><span class="p">]</span>
+        <span class="n">data_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">153</span><span class="p">,</span><span class="mi">153</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">idx1</span><span class="p">,</span> <span class="n">value1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_column</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">idx2</span><span class="p">,</span> <span class="n">value2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data_column</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">idx1</span> <span class="o">!=</span> <span class="n">idx2</span><span class="p">:</span>
+                    <span class="n">distance</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">value1</span> <span class="o">-</span> <span class="n">value2</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">data_matrix</span><span class="p">[</span><span class="n">idx1</span><span class="p">,</span><span class="n">idx2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="n">data_matrix</span><span class="p">[</span><span class="n">idx1</span><span class="p">,</span><span class="n">idx2</span><span class="p">]</span> <span class="o">=</span> <span class="n">distance</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">data_matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">data_matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">assert</span><span class="p">(</span><span class="n">data_matrix</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">data_matrix</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="c1"># standardise the matrix</span>
+        <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+        <span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data_matrix</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;absolute_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">data_point</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_matrix</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">data_point</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">convert_matrix</span><span class="o">.</span><span class="n">from_numpy_array</span><span class="p">(</span><span class="n">data_matrix</span><span class="p">)</span>
+        <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">],</span> <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+        <span class="n">purp_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;young&#39;</span><span class="p">)</span>
+        <span class="n">yellow_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">purp_patch</span><span class="p">,</span> <span class="n">yellow_patch</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>labels created
+groups removed from data
+building + standardising Adjacency matrices
+igt_orl: A+
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_1.png" src="_images/SpectralAnalysisDistance_5_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl: A-
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_3.png" src="_images/SpectralAnalysisDistance_5_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl: K
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_5.png" src="_images/SpectralAnalysisDistance_5_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl: BetaF
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_7.png" src="_images/SpectralAnalysisDistance_5_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl: BetaP
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_9.png" src="_images/SpectralAnalysisDistance_5_9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl: A+-A-
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_11.png" src="_images/SpectralAnalysisDistance_5_11.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>labels created
+groups removed from data
+building + standardising Adjacency matrices
+igt_pvl_delta: LR
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_13.png" src="_images/SpectralAnalysisDistance_5_13.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_pvl_delta: Outcome_Sens
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_15.png" src="_images/SpectralAnalysisDistance_5_15.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_pvl_delta: Response_cons
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_17.png" src="_images/SpectralAnalysisDistance_5_17.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_pvl_delta: Loss_Aver
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_19.png" src="_images/SpectralAnalysisDistance_5_19.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>labels created
+groups removed from data
+building + standardising Adjacency matrices
+igt_vpp: LR
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_21.png" src="_images/SpectralAnalysisDistance_5_21.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp: Out_Sens
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_23.png" src="_images/SpectralAnalysisDistance_5_23.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp: Res_Cons
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_25.png" src="_images/SpectralAnalysisDistance_5_25.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp: Loss_Aver
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_27.png" src="_images/SpectralAnalysisDistance_5_27.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp: Gain_Impa
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_29.png" src="_images/SpectralAnalysisDistance_5_29.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp: Loss_Impa
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_31.png" src="_images/SpectralAnalysisDistance_5_31.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp: Deca_Rate
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_33.png" src="_images/SpectralAnalysisDistance_5_33.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp: RL_weight
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_5_35.png" src="_images/SpectralAnalysisDistance_5_35.png" />
+</div>
+</div>
+<p>Here we can see the distances for each point from other points under each feature given to us</p>
+<p>Subjects which are closer to the centre of the network behave “normally” and those with the further distances
+would be those subjects which behave most differently to others.</p>
+<p>For the outcome representation dataset, we can see that generally older people behave most similarly.
+There are some outliers however which skirt along the outsides of the graphs.</p>
+<p>The younger nodes are spread evenly throughout the network.</p>
+<p>Clustering at this level is quite difficult as the graph is so dense.
+HDBScan would probably work the best on this data as we can see circular patterns of nodes which wouldn’t be effectively found using KMeans. However the data would have to be manipulated in some way as it is too dense. We will have to take another approach.</p>
+<p>What happens when we layer these graphs on top of one another?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]:</span>
+    <span class="n">master_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">153</span><span class="p">,</span><span class="mi">153</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">data_point</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;column_names&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]:</span>
+        <span class="n">master_matrix</span> <span class="o">=</span> <span class="n">master_matrix</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;absolute_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">data_point</span><span class="p">]</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;absolute_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;master&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">master_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]:</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;absolute_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="s1">&#39;master&#39;</span><span class="p">]</span>
+<span class="c1">#     matrix = matrix * 2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2"> aggregate graph&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">convert_matrix</span><span class="o">.</span><span class="n">from_numpy_array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">],</span> <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+    <span class="n">purp_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;young&#39;</span><span class="p">)</span>
+    <span class="n">yellow_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">purp_patch</span><span class="p">,</span> <span class="n">yellow_patch</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">write_graphml</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s1">-master.graphml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl aggregate graph
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_9_1.png" src="_images/SpectralAnalysisDistance_9_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_pvl_delta aggregate graph
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_9_3.png" src="_images/SpectralAnalysisDistance_9_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp aggregate graph
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_9_5.png" src="_images/SpectralAnalysisDistance_9_5.png" />
+</div>
+</div>
+<p>We can see the data is beginning to pull apart a little, especially in the outcome representation learning model.
+There seems to be a strong cluster of old people in the middle along with some slightly less obvious sub clusters surrounding
+the middle of the network.</p>
+<p>The matrices can be multiplied and the relationships between nodes will be Amplified, it may give us a better insight into how each model behaves</p>
+<p>Other distance measurements</p>
+<p>Below we have tried using some other distance measurements</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;hamming_distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;euclidean_distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;cityblock_distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;minkowski_distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]:</span>
+    <span class="n">dataset</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;column_names&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_points</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;hamming_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">153</span><span class="p">,</span><span class="mi">153</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;euclidean_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">153</span><span class="p">,</span><span class="mi">153</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;cityblock_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">153</span><span class="p">,</span><span class="mi">153</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;minkowski_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">153</span><span class="p">,</span><span class="mi">153</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="c1">#build distance matrices</span>
+    <span class="k">for</span> <span class="n">first_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">second_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">first_index</span> <span class="o">!=</span> <span class="n">second_index</span><span class="p">:</span>
+                <span class="n">hamming_dist</span> <span class="o">=</span> <span class="n">hamming</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">first_index</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">second_index</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="n">euclidean_dist</span> <span class="o">=</span> <span class="n">euclidean</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">first_index</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">second_index</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="n">cityblock_dist</span> <span class="o">=</span> <span class="n">cityblock</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">first_index</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">second_index</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="n">minkowski_dist</span> <span class="o">=</span> <span class="n">minkowski_distance</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">first_index</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dataset</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">second_index</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;hamming_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">first_index</span><span class="p">,</span><span class="n">second_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">hamming_dist</span>
+                <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;euclidean_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">second_index</span><span class="p">,</span> <span class="n">first_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">euclidean_dist</span>
+                <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;cityblock_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">second_index</span><span class="p">,</span> <span class="n">first_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">cityblock_dist</span>
+                <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="s1">&#39;minkowski_distance&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">][</span><span class="n">second_index</span><span class="p">,</span> <span class="n">first_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">minkowski_dist</span>
+<span class="k">for</span> <span class="n">dataset_name</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;raw_data&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">distance_measure</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">distance_measure</span> <span class="o">!=</span> <span class="s1">&#39;absolute_distance&#39;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">dataset_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">distance_measure</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+            <span class="n">matrix</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;matrices&#39;</span><span class="p">][</span><span class="n">distance_measure</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">]</span>
+            <span class="n">B</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">convert_matrix</span><span class="o">.</span><span class="n">from_numpy_array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+            <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;processed_data&#39;</span><span class="p">][</span><span class="s1">&#39;labels&#39;</span><span class="p">][</span><span class="n">dataset_name</span><span class="p">],</span> <span class="n">font_color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+            <span class="n">purp_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;young&#39;</span><span class="p">)</span>
+            <span class="n">yellow_patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="o">.</span><span class="n">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;old&#39;</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="p">[</span><span class="n">purp_patch</span><span class="p">,</span> <span class="n">yellow_patch</span><span class="p">])</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl hamming_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_1.png" src="_images/SpectralAnalysisDistance_12_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl euclidean_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_3.png" src="_images/SpectralAnalysisDistance_12_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl cityblock_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_5.png" src="_images/SpectralAnalysisDistance_12_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_orl minkowski_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_7.png" src="_images/SpectralAnalysisDistance_12_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_pvl_delta hamming_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_9.png" src="_images/SpectralAnalysisDistance_12_9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_pvl_delta euclidean_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_11.png" src="_images/SpectralAnalysisDistance_12_11.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_pvl_delta cityblock_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_13.png" src="_images/SpectralAnalysisDistance_12_13.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_pvl_delta minkowski_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_15.png" src="_images/SpectralAnalysisDistance_12_15.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp hamming_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_17.png" src="_images/SpectralAnalysisDistance_12_17.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp euclidean_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_19.png" src="_images/SpectralAnalysisDistance_12_19.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp cityblock_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_21.png" src="_images/SpectralAnalysisDistance_12_21.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>igt_vpp minkowski_distance
+</pre></div>
+</div>
+<img alt="_images/SpectralAnalysisDistance_12_23.png" src="_images/SpectralAnalysisDistance_12_23.png" />
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Clustering%20Techniques.html" title="previous page">Clustering Techniques</a>
+    <a class='right-next' id="next-link" href="SpectralAnalysisDiscreteIntervalGroups.html" title="next page">Spectral Analysis - Discrete Interval Groups</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jack Boylan & Ivan Fitzpatrick<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
